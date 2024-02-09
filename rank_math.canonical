@@ -1,0 +1,8 @@
+add_filter( 'rank_math/frontend/canonical', function( $canonical ) {
+	if ( is_paged() ) {
+			$link = $_SERVER['REQUEST_URI'];
+			$arr = explode('/page/', $link,);
+			$canonical = home_url($arr[0]. '/');
+		}
+		return $canonical;
+});
